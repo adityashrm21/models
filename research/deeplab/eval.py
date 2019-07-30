@@ -156,7 +156,7 @@ def main(unused_argv):
     labels = tf.cast(tf.gather(labels, indices), tf.int32)
     predictions = tf.gather(predictions, indices)
     # end of insert
-    
+
     miou, update_op = tf.metrics.mean_iou(
         predictions, labels, dataset.num_of_classes, weights=weights)
     tf.summary.scalar(predictions_tag, miou)
