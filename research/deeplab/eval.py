@@ -149,6 +149,14 @@ def main(unused_argv):
       predictions_tag += '_flipped'
 
     # Define the evaluation metric.
+
+    # insert by trobr
+    indices = tf.squeeze(tf.where(tf.less_equal(
+        labels, dataset.num_classes - 1)), 1)
+    labels = tf.cast(tf.gather(labels, indices), tf.int32)
+    predictions = tf.gather(predictions, indices)
+    # end of insert
+    
     miou, update_op = tf.metrics.mean_iou(
         predictions, labels, dataset.num_of_classes, weights=weights)
     tf.summary.scalar(predictions_tag, miou)
