@@ -152,7 +152,7 @@ def main(unused_argv):
 
     # insert by trobr
     indices = tf.squeeze(tf.where(tf.less_equal(
-        labels, dataset.num_classes - 1)), 1)
+        labels, dataset.num_of_classes - 1)), 1)
     labels = tf.cast(tf.gather(labels, indices), tf.int32)
     predictions = tf.gather(predictions, indices)
     # end of insert
