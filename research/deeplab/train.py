@@ -16,6 +16,14 @@
 
 See model.py for more details and usage.
 """
+import os
+import sys
+ROOT_DIR = os.path.abspath("research")
+# SLIM_DIR = os.path.abspath("slim")
+# NETS_DIR = os.path.abspath("slim/nets")
+sys.path.append(ROOT_DIR)
+# sys.path.append(SLIM_DIR)
+# sys.path.append(NETS_DIR)
 
 import six
 import tensorflow as tf
@@ -130,10 +138,10 @@ flags.DEFINE_string('tf_initial_checkpoint', None,
                     'The initial checkpoint in tensorflow format.')
 
 # Set to False if one does not want to re-use the trained classifier weights.
-flags.DEFINE_boolean('initialize_last_layer', True,
+flags.DEFINE_boolean('initialize_last_layer', False,
                      'Initialize the last layer.')
 
-flags.DEFINE_boolean('last_layers_contain_logits_only', False,
+flags.DEFINE_boolean('last_layers_contain_logits_only', True,
                      'Only consider logits as last layers or not.')
 
 flags.DEFINE_integer('slow_start_step', 0,
