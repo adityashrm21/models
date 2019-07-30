@@ -14,6 +14,11 @@
 # ==============================================================================
 
 """Extracts features for different models."""
+import os
+import sys
+# SLIM_DIR = os.path.abspath("slim")
+# sys.path.append(SLIM_DIR)
+
 import functools
 import tensorflow as tf
 
